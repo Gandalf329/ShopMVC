@@ -8,9 +8,9 @@
 <p>@Model.Category1  / @Model.Category2</p>
 <div class="text-center">
     <table class="table">
-        <tr><td>Name</td><td>Company</td><td>Type</td><td>Description</td><td>Amount</td></tr>
+        <tr><td>Name</td><td>Company</td><td>Category</td><td>Description</td><td>Amount</td></tr>
 
-                <tr><td>@Model.Name</td><td>@Model.Company</td><td>@Model.Type</td><td>@Model.Description</td><td>@Model.Amount</td><td>
+                <tr><td>@Model.Name</td><td>@Model.Company</td><td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@Model.Category2">@Model.Category2 </a></td><td>@Model.Description</td><td>@Model.Amount</td><td>
                 <form method="post" asp-controller="Home" asp-action="BuyTest"  asp-route-id="@Model.Id"  method="post">
                     <input type="submit" value="Buy Test" />
                 </form>
