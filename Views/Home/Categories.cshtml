@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ShopMVC.Models.Product>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<a asp-action="CreateProduct">New product</a>
+<h1>Categories</h1>
+
+<div class="text-center">
+    <table class="table">
+        <tr><td>Id</td><td>Name</td><td>Company</td><td>Type</td><td>Description</td><td>Amount</td><td>Price</td></tr>
+        @foreach (var item in Model)
+        {
+                <tr><td>@item.Id</td><td>@item.Name</td><td>@item.Company</td><td>@item.Type</td><td>@item.Description</td><td>@item.Amount</td><td>@item.Price</td><td>
+                <form method="post" asp-controller="Home" asp-action="ProductView"  asp-route-id="@item.Id"  method="post">
+                    <input type="submit" value="Product" />
+                </form>
+            </td></tr>
+        }
+    </table>
+</div>
