@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H7W3Oj4b8VN7FfkdUV1XDqETnfshqlQuRESQPyyNKcTjpde4+Odb+L1uPlbAfM3Y+xec8au00sIRKU3Y2EjgJA==",
+  "dgSpecHash": "SsE2rwKzvtoOd7FEJqQc1j+XmtUz5pVgWbpUPUnCXkKnGZpXlgJe7Qep+oo8G316cTXHswrWDNsobKPj8+sE4A==",
   "success": true,
-  "projectFilePath": "D:\\progVis\\ShopMVC\\ShopMVC.csproj",
+  "projectFilePath": "D:\\progVis\\copyGit\\ShopMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pohle\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.15\\microsoft.aspnetcore.cryptography.internal.5.0.15.nupkg.sha512",
     "C:\\Users\\pohle\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.15\\microsoft.aspnetcore.cryptography.keyderivation.5.0.15.nupkg.sha512",

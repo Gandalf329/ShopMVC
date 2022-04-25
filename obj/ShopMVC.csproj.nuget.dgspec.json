@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\progVis\\ShopMVC\\ShopMVC.csproj": {}
+    "D:\\progVis\\copyGit\\ShopMVC.csproj": {}
   },
   "projects": {
-    "D:\\progVis\\ShopMVC\\ShopMVC.csproj": {
+    "D:\\progVis\\copyGit\\ShopMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\progVis\\ShopMVC\\ShopMVC.csproj",
+        "projectUniqueName": "D:\\progVis\\copyGit\\ShopMVC.csproj",
         "projectName": "ShopMVC",
-        "projectPath": "D:\\progVis\\ShopMVC\\ShopMVC.csproj",
+        "projectPath": "D:\\progVis\\copyGit\\ShopMVC.csproj",
         "packagesPath": "C:\\Users\\pohle\\.nuget\\packages\\",
-        "outputPath": "D:\\progVis\\ShopMVC\\obj\\",
+        "outputPath": "D:\\progVis\\copyGit\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
