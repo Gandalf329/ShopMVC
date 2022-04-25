@@ -34,9 +34,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllCategories">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-                        </li>
-                        <li class="nav-item">
                             <form asp-controller="Home" asp-action="AllProducts">
                                 <p>
                                     Product: <input type="text" name="SearchString" />
@@ -49,11 +46,13 @@
 
                     </ul>
                     @if (User.Identity.IsAuthenticated)
-                    {   <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Profile">@User.Identity.Name</a>
+                    {  
+                    <a class="nav-link text-dark" asp-controller="Users" asp-action="ViewUserProfile" asp-route-name="@User.Identity.Name" method="post">@User.Identity.Name</a>
                     <form method="post" asp-controller="Account" asp-action="Logout">
                         <input type="submit" value="Выход" class="btn btn-exit" />
                     </form>
                     }else{
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                     <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login" align="left">Login</a>
                     }
                 </div>

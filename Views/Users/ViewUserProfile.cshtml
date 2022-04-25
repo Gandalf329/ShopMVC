@@ -1,0 +1,17 @@
+﻿@model ShopMVC.ViewModels.ViewUserProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+<h1>@Model.UserName profile</h1>
+@if(User.Identity.IsAuthenticated)
+{
+<div>
+    
+    <p>@Model.UserName</p>
+</div>
+
+<p> @Model.Id</p>
+<p> @Model.Email</p>
+<p> Money: @Model.Money </p>
+}
+
