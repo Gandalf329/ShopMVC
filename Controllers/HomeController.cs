@@ -7,14 +7,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Identity;
+using ShopMVC.Filters;
 namespace ShopMVC.Controllers
 {
     public class HomeController : Controller
     {
         private ApplicationContext db;
-        public HomeController( ApplicationContext context)
+        UserManager<User> _userManager;
+        public HomeController(UserManager<User> userManager, ApplicationContext context)
         {
+            _userManager = userManager;
             db = context;
             if (db.Products.Count() == 0)
             {
@@ -110,9 +113,14 @@ namespace ShopMVC.Controllers
 
                 await db.SaveChangesAsync();
             }
-                
+            User user = await _userManager.FindByNameAsync(orderModel.NameBuyer);
+            if (user != null)
+            {
+                user.Money -= prod.Price;
+                await db.SaveChangesAsync();
+            }    
             db.OrderModels.Add(orderModel);
-            //Console.Beep();
+
             await db.SaveChangesAsync();
             return RedirectToAction("AllProducts");
         }
