@@ -6,5 +6,6 @@ namespace ShopMVC.Models
     {
         //public string UserName { get; set; }
         public int Year { get; set; }
+        public int Money { get; set; }
     }
 }
