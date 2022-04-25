@@ -137,5 +137,9 @@ namespace ShopMVC.Controllers
             }
             return View(await products.ToListAsync());
         }
+        public IActionResult Profile()
+        {
+            return View();
+        }
     }
 }

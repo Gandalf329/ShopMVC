@@ -160,3 +160,4 @@ D:\progVis\copyGit\obj\Debug\net5.0\ShopMVC.pdb
 D:\progVis\copyGit\obj\Debug\net5.0\ShopMVC.genruntimeconfig.cache
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\Profile.cshtml.g.cs
