@@ -110,7 +110,9 @@ namespace ShopMVC.Controllers
                 Console.WriteLine($"{prod.Id} : its Id");
                 Console.WriteLine($"{prod.Amount} : its Amount");
                 db.Products.Find(prod.Id).Amount -= 1;
-
+                orderModel.CompanyProduct = prod.Company;
+                orderModel.Price = prod.Price;
+                orderModel.TypeProduct = prod.Category2;
                 await db.SaveChangesAsync();
             }
             User user = await _userManager.FindByNameAsync(orderModel.NameBuyer);
