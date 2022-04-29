@@ -18,14 +18,15 @@
             <td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@Model.Category2">@Model.Category2 </a></td>
             <td>@Model.Description</td>
             <td>@Model.Amount</td>
+            @if (User.IsInRole("admin"))
+            {
             <td>
-                if (User.IsInRole("admin"))
-                {
                 <form method="post" asp-controller="Home" asp-action="BuyTest" asp-route-id="@Model.Id">
                     <input type="submit" value="Buy Test" />
                 </form>
-                }
+                
             </td>
+            }
             <td>
                 <a class="profile-link text-dark" asp-controller="Home" asp-action="BuyProduct">Buy product</a>
             </td>
