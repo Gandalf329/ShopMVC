@@ -147,7 +147,14 @@ namespace ShopMVC.Controllers
             }
             return View(await products.ToListAsync());
         }
-        
+
+        public async Task<IActionResult> AllOrders()
+        {
+            var orders = (from m in db.OrderModels
+                           select m);
+            
+            return View(await orders.ToListAsync());
+        }
         
     }
 }
