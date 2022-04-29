@@ -5,13 +5,15 @@
 <h1>@Model.UserName profile</h1>
 @if(User.Identity.IsAuthenticated)
 {
-<div>
-    
-    <p>@Model.UserName</p>
-</div>
-
-<p> @Model.Id</p>
-<p> @Model.Email</p>
-<p> Money: @Model.Money </p>
+    <div>
+        <p>@Model.UserName</p>
+    </div>
+    @if (User.IsInRole("admin"))
+    {
+        <a class="nav-link text-dark" style="background-color:bisque; color:darkcyan; font-weight:bold" asp-area="" asp-controller="Home" asp-action="AllOrders">Orders</a>
+    }
+    <p> @Model.Id</p>
+    <p> @Model.Email</p>
+    <p> Money: @Model.Money </p>
 }
 

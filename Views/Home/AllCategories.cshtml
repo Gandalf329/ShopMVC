@@ -2,8 +2,10 @@
 @{
     ViewData["Title"] = "All Categories";
 }
-
+@if (User.IsInRole("admin"))
+    {
 <a asp-action="CreateProduct">New product</a>
+    }
 <h1>All Categories</h1>
 
 <div class="text-center">
