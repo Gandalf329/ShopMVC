@@ -27,15 +27,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllProducts">All Products</a>
                         </li>
+                        @if (User.IsInRole("admin"))
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateProduct">Create Product</a>
                         </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllCategories">Categories</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllOrders">Categories</a>
-                        </li>
+
                         <li class="nav-item">
                             <form asp-controller="Home" asp-action="AllProducts">
                                 <p>

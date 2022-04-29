@@ -9,6 +9,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using ShopMVC.Filters;
+using Microsoft.AspNetCore.Authorization;
+using System.IO;
+
 namespace ShopMVC.Controllers
 {
     public class HomeController : Controller
@@ -147,7 +150,7 @@ namespace ShopMVC.Controllers
             }
             return View(await products.ToListAsync());
         }
-
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> AllOrders()
         {
             var orders = (from m in db.OrderModels

@@ -2,21 +2,34 @@
 @{
     ViewData["Title"] = "All Messages";
 }
-
+@if (User.IsInRole("admin"))
+    {
 <a asp-action="CreateProduct">New product</a>
+    }
 <h1>All Products</h1>
 <p>@Model.Category1  / @Model.Category2</p>
 <div class="text-center">
     <table class="table">
         <tr><td>Name</td><td>Company</td><td>Category</td><td>Description</td><td>Amount</td></tr>
 
-                <tr><td>@Model.Name</td><td>@Model.Company</td><td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@Model.Category2">@Model.Category2 </a></td><td>@Model.Description</td><td>@Model.Amount</td><td>
-                <form method="post" asp-controller="Home" asp-action="BuyTest"  asp-route-id="@Model.Id"  method="post">
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Company</td>
+            <td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@Model.Category2">@Model.Category2 </a></td>
+            <td>@Model.Description</td>
+            <td>@Model.Amount</td>
+            <td>
+                if (User.IsInRole("admin"))
+                {
+                <form method="post" asp-controller="Home" asp-action="BuyTest" asp-route-id="@Model.Id">
                     <input type="submit" value="Buy Test" />
                 </form>
-            </td><td>
-                <a class="profile-link text-dark" asp-controller="Home" asp-action="BuyProduct"  >Buy product</a>
-            </td></tr>
+                }
+            </td>
+            <td>
+                <a class="profile-link text-dark" asp-controller="Home" asp-action="BuyProduct">Buy product</a>
+            </td>
+        </tr>
 
     </table>
 </div>
