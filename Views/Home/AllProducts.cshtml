@@ -11,7 +11,13 @@
         <tr><td>Id</td><td>Name</td><td>Company</td><td>Category</td><td>Description</td><td>Amount</td><td>Price</td></tr>
         @foreach (var item in Model)
         {
-                <tr><td>@item.Id</td><td>@item.Name</td><td>@item.Company</td><td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2 </a></td><td>@item.Description</td><td>@item.Amount</td><td>@item.Price</td><td>
+                <tr><td>@item.Id</td><td>@item.Name</td><td>@item.Company</td><td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2 </a></td><td>@item.Description</td>
+                @if(item.Amount >= 10){
+                    <td style="color:green">@item.Amount</td>
+                }else{
+                    <td style="color:tomato">@item.Amount</td>
+                }
+                <td>@item.Price</td><td>
                 <form method="post" asp-controller="Home" asp-action="ProductView"  asp-route-id="@item.Id">
                     <input type="submit" value="Product" />
                 </form>
