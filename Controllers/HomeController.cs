@@ -158,6 +158,16 @@ namespace ShopMVC.Controllers
             
             return View(await orders.ToListAsync());
         }
-        
+        public async Task<IActionResult> MyOrders(string name)
+        {
+            var orders = (from m in db.OrderModels
+                           select m);
+            if (!String.IsNullOrEmpty(name))
+            {
+                orders = orders.Where(p => p.NameBuyer.Contains(name));
+                //string check = products.ToString();
+            }
+            return View(await orders.ToListAsync());
+        }
     }
 }

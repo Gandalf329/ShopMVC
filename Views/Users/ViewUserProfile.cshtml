@@ -10,11 +10,14 @@
     </div>
     if (User.IsInRole("admin"))
     {
-        <a class="nav-link text-dark" style="background-color:bisque; color:darkcyan; font-weight:bold" asp-area="" asp-controller="Home" asp-action="AllOrders">Orders</a>
+        <a class="nav-link text-dark" style="width: max-content; border-radius: 5px; background-color: bisque; color: darkcyan; font-weight: bold" asp-area="" asp-controller="Home" asp-action="AllOrders">Orders</a>
         <p>@Model.Id</p>
     }
     
     <p> @Model.Email</p>
     <p> Money: @Model.Money </p>
 }
-
+<div>
+    <h1 style=" font-size: 2rem; font-weight: 700;">My orders</h1>
+    <a style="background-color: lightgray; width: max-content; border-radius: 5px; " class="nav-link text-dark" asp-controller="Home" asp-action="MyOrders" asp-route-name="@User.Identity.Name">my order</a>
+</div>

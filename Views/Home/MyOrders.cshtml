@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ShopMVC.Models.OrderModel>
+    @{
+    ViewData["Title"] = "My Orders";
+    }
+    <h1>My Orders</h1>
+
+    <div class="text-center">
+        <table class="table">
+            <tr><td>Id</td><td>NameBuyer</td><td>Product</td><td>Address</td><td>TypeProduct</td><td>CompanyProduct</td><td>Price</td></tr>
+            @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.NameBuyer</td>
+                <td>@item.NameProduct</td>
+                <td>@item.Address</td>
+                <td>@item.TypeProduct</td>
+                <td>@item.CompanyProduct</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+        </table>
+    </div>
