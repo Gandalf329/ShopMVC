@@ -11,6 +11,6 @@
     "\\Views\\Shared",
     "\\Views\\Users"
   ],
-  "SelectedNode": "\\Views\\Users\\ViewUserProfile.cshtml",
+  "SelectedNode": "\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
