@@ -162,3 +162,4 @@ D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Users\ViewUserProfile.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\AllOrders.cshtml.g.cs
+D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\MyOrders.cshtml.g.cs

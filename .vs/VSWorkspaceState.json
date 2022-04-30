@@ -8,8 +8,9 @@
     "\\Views",
     "\\Views\\Account",
     "\\Views\\Home",
-    "\\Views\\Shared"
+    "\\Views\\Shared",
+    "\\Views\\Users"
   ],
-  "SelectedNode": "\\Views\\Shared\\_Layout.cshtml",
+  "SelectedNode": "\\Views\\Users\\ViewUserProfile.cshtml",
   "PreviewInSolutionExplorer": false
 }
