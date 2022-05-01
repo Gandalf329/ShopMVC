@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ShopMVC.Models.Product>
+@{
+    ViewData["Title"] = "All tProducts";
+}
+@if (User.IsInRole("admin"))
+    {
+    <a asp-action="CreateProduct">New product</a>
+    }
+<h1>All Products</h1>
+
+<div class="text-center">
+    <table class="table" style=" border-collapse: inherit;">
+        <tr><td>Id</td><td>Name</td><td>Company</td><td>Category</td><td>Description</td><td>Amount</td><td>Price</td></tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Company</td>
+        <td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2 </a></td>
+        <td class="decsription">@item.Description</td>
+        @if(item.Amount >= 5){
+            if (User.IsInRole("admin"))
+            { <td style="color:green">@item.Amount</td> }else{ <td style="color:green">5+</td>}
+        }else{
+            <td style="color:tomato">@item.Amount</td>}
+        <td>@item.Price</td>
+        <td>
+            <form  method="post" asp-controller="Home" asp-action="ProductView" asp-route-id="@item.Id">
+                <input class="productButton"  type="submit" value="Product" />
+            </form>
+        </td>
+        <td>
+        @if (User.IsInRole("admin"))
+        {
+            <form  method="post" asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">
+                <input class="deleteButton" type="submit" value="Delete" />
+            </form>
+        }
+        </td>
+    </tr>
+        }
+    </table>
+</div>

@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Controllers",
-    "\\Filters",
-    "\\Models",
-    "\\ViewModels",
     "\\Views",
-    "\\Views\\Account",
-    "\\Views\\Home",
-    "\\Views\\Shared",
-    "\\Views\\Users"
+    "\\Views\\Users",
+    "\\wwwroot\\css",
+    "\\wwwroot\\js",
+    "\\wwwroot\\lib",
+    "\\wwwroot\\lib\\bootstrap",
+    "\\wwwroot\\lib\\bootstrap\\dist",
+    "\\wwwroot\\lib\\bootstrap\\dist\\css",
+    "\\wwwroot\\lib\\jquery-validation",
+    "\\wwwroot\\lib\\jquery-validation-unobtrusive"
   ],
-  "SelectedNode": "\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\Views\\Home\\ProductView.cshtml",
   "PreviewInSolutionExplorer": false
 }
