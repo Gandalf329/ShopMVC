@@ -1,6 +1,8 @@
-﻿namespace ShopMVC.Models
+using Microsoft.AspNetCore.Http;
+
+namespace ShopMVC.Models
 {
-    public class Product
+    public class ProductViewModel
     {
         public int Id { get; set; }
         public string Category1 { get; set; }
@@ -11,6 +13,6 @@
         public string Description { get; set; }
         public int Amount { get; set; }
         public int Price { get; set; }
-        public byte[] Photo { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }
