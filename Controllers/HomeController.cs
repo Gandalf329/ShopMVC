@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using ShopMVC.Filters;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
-
+using Microsoft.AspNetCore.Http;
 namespace ShopMVC.Controllers
 {
     public class HomeController : Controller
@@ -89,12 +89,31 @@ namespace ShopMVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProduct(Product product)
-        {
-            db.Products.Add(product);
+        public async Task<IActionResult> CreateProduct(ProductViewModel product)
+        {   
+            Product productNew = new Product();
+            byte[] imageData = null;
+            if (product.Photo != null)
+            {
+                 using (var binaryReader = new BinaryReader(product.Photo.OpenReadStream()))
+                 {
+                    imageData = binaryReader.ReadBytes((int)product.Photo.Length);
+                }              
+            }
+            productNew.Photo=imageData;
+            productNew.Name = product.Name;
+            productNew.Type = product.Type;
+            productNew.Description = product.Description;
+            productNew.Category1 = product.Category1;
+            productNew.Category2 = product.Category2;
+            productNew.Company  = product.Company;
+            productNew.Amount = product.Amount;
+            productNew.Price  = product.Price;
+            db.Products.Add(productNew);
             await db.SaveChangesAsync();
             return RedirectToAction("AllProducts");
         }
+       
         [Authorize(Roles = "admin")]
         [HttpGet]
         [ActionName("Delete")]
@@ -137,8 +156,19 @@ namespace ShopMVC.Controllers
         }
         [Authorize(Roles = "admin")]
         [HttpPost]
-        public async Task<IActionResult> EditProduct(Product product)
+        public async Task<IActionResult> EditProduct(ProductViewModel productVM)
         {
+            Product product = await db.Products.FirstOrDefaultAsync(p => p.Id == productVM.Id);
+
+            byte[] imageData = null;
+            if (productVM.Photo != null)
+            {
+                 using (var binaryReader = new BinaryReader(productVM.Photo.OpenReadStream()))
+                 {
+                    imageData = binaryReader.ReadBytes((int)productVM.Photo.Length);
+                }              
+            }
+            product.Photo=imageData;
             db.Products.Update(product);
             await db.SaveChangesAsync();
             return RedirectToAction("AllProducts");
