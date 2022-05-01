@@ -15,7 +15,7 @@
                 <a class="listCategory" asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2</a>
                 @if (item.Photo != null)
             {
-                <a class="listFieldImg"><img class="listImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Photo))" /></a>
+                <a class="listFieldImg" method="post" asp-controller="Home" asp-action="ProductView" asp-route-id="@item.Id"><img class="listImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Photo))" /></a>
             }
                 <div class="listName">@item.Name</div>
                 <div class="listPrice">@item.Price р.</div>

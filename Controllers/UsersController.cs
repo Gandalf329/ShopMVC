@@ -27,7 +27,6 @@ namespace ShopMVC.Controllers
         
         public async Task<IActionResult> ViewUserProfile(string name)
         {
-            Console.WriteLine("Test1");
             User user = await _userManager.FindByNameAsync(name);
             if (user == null)
             {
