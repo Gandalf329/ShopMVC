@@ -84,6 +84,19 @@ namespace ShopMVC.Controllers
 
             return View(await products.ToListAsync());
         }
+        public async Task<IActionResult> AllThisProducts(string searchString)
+        {
+            var products = from m in db.Products
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString));
+                //string check = products.ToString();
+            }
+
+            return View(await products.ToListAsync());
+        }
         public IActionResult CreateProduct()
         {
             return View();
@@ -166,9 +179,18 @@ namespace ShopMVC.Controllers
                  using (var binaryReader = new BinaryReader(productVM.Photo.OpenReadStream()))
                  {
                     imageData = binaryReader.ReadBytes((int)productVM.Photo.Length);
-                }              
+                }  
+                 product.Photo=imageData;
             }
-            product.Photo=imageData;
+            product.Name = productVM.Name;
+            product.Type = productVM.Type;
+            product.Description = productVM.Description;
+            product.Category1 = productVM.Category1;
+            product.Category2 = productVM.Category2;
+            product.Company  = productVM.Company;
+            product.Amount = productVM.Amount;
+            product.Price  = productVM.Price;
+
             db.Products.Update(product);
             await db.SaveChangesAsync();
             return RedirectToAction("AllProducts");

@@ -19,11 +19,14 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (User.IsInRole("admin"))
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllThisProducts">All tProducts</a>
+                        </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllProducts">All Products</a>
                         </li>
@@ -45,15 +48,12 @@
                                 </p>
                             </form>
                         </li>
-
-
-
                     </ul>
                     @if (User.Identity.IsAuthenticated)
                     {  
                     <a class="nav-link text-dark" asp-controller="Users" asp-action="ViewUserProfile" asp-route-name="@User.Identity.Name" method="post">@User.Identity.Name</a>
                     <form method="post" asp-controller="Account" asp-action="Logout">
-                        <input type="submit" value="Выход" class="btn btn-exit" />
+                        <input class="exitButton" type="submit" value="Выход"/>
                     </form>
                     }else{
                     <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>

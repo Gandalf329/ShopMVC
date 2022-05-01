@@ -165,3 +165,4 @@ D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\AllOrders.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\MyOrders.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\EditProduct.cshtml.g.cs
 D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\Delete.cshtml.g.cs
+D:\progVis\copyGit\obj\Debug\net5.0\Razor\Views\Home\AllThisProducts.cshtml.g.cs

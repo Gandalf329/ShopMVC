@@ -70,3 +70,201 @@ body {
     line-height: 60px; /* Vertically center the text there */
     
 }
+
+.decsription {
+    height: 62.8px;
+    width: 450px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.miniImg {
+    width: 55px;
+    height: 55px;
+    border-radius: 45%;
+}
+    miniImg:hover {
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+    display: block;
+}
+.decsription {
+    height: 62.8px;
+    width: 450px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.deleteButton {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: orangered;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.editButton {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(30, 30, 30);
+    background-color: lightyellow;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.productButton {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: lightcyan;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.exitButton {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: lightyellow;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.buyButton {
+    display: block;
+    width: 200%;
+    height: calc(2.25rem + 5px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: lightgreen;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.buyButtonList {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 5px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: lightgreen;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    .buyButtonList, .buyButtonList:hover, .listCategory:active {
+        text-decoration: none;
+        color: #212529;
+    }
+.list {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    list-style: none;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: inherit;
+}
+.listProduct {
+    margin-bottom: 25px;
+    border-radius: 2px;
+    padding: 16px 20px;
+    width: 20%;
+    min-height: 360px;
+}
+.listCategory {
+    font-size: 14px;
+    line-height: 20px;
+    align-items: flex-start;
+    display: flex;
+    position: relative;
+}
+    .listCategory,.listCategory:active {
+        text-decoration: none;
+        color:black;
+    }
+        .listCategory:hover {
+            text-decoration: none;
+            color: rgb(171, 98, 252);
+        }
+
+.listFieldImg {
+    height: 180px;
+    width: 180px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    margin: 0 auto 20px;
+}
+.listImg {
+    object-position: center;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+}
+.listName {
+    position: relative;
+    margin-bottom: auto;
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 0em;
+    font-weight: 500;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.listPrice {
+    align-items: flex-start;
+    display: flex;
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
