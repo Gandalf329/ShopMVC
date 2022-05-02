@@ -65,7 +65,14 @@ namespace ShopMVC.Controllers
         {
             return View();
         }
-
+        public IActionResult requestRegister()
+        {
+            return View();
+        }
+        public IActionResult NoneProducts()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -79,6 +86,11 @@ namespace ShopMVC.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(p => p.Name.Contains(searchString));
+                var counts =  await products.CountAsync();
+                if (counts == 0)
+                {
+                    return RedirectToAction("NoneProducts");
+                }
                 //string check = products.ToString();
             }
 

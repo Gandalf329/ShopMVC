@@ -11,16 +11,23 @@
 <div class="text-center">
     <ul class="list">
         @foreach (var item in Model){
-        <li class="listProduct">
-            <a class="listCategory" asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2</a>
-            @if (item.Photo != null)
-            {
-            <a class="listFieldImg" method="post" asp-controller="Home" asp-action="ProductView" asp-route-id="@item.Id"><img class="listImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Photo))" /></a>
+            if(item.Amount >0){
+            <li class="listProduct">
+                <a class="listCategory" asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2</a>
+                @if (item.Photo != null)
+                {
+                <a class="listFieldImg" method="post" asp-controller="Home" asp-action="ProductView" asp-route-id="@item.Id"><img class="listImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Photo))" /></a>
+                }
+                <div class="listName">@item.Name</div>
+                <div class="listPrice">@item.Price р.</div>
+                @if (User.Identity.IsAuthenticated)
+                {  
+                    <a class="buyButtonList" asp-controller="Home" asp-action="BuyProduct">Buy</a>
+                }else{
+                    <a class="buyButtonList" asp-area="" asp-controller="Home" asp-action="requestRegister">Buy</a>
+                }
+            </li>
             }
-            <div class="listName">@item.Name</div>
-            <div class="listPrice">@item.Price р.</div>
-            <a class="buyButtonList" asp-controller="Home" asp-action="BuyProduct">Buy</a>
-        </li>
         }
     </ul>
 </div>
