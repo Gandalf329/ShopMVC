@@ -22,7 +22,7 @@
                 <div class="listPrice">@item.Price р.</div>
                 @if (User.Identity.IsAuthenticated)
                 {  
-                    <a class="buyButtonList" asp-controller="Home" asp-action="BuyProduct">Buy</a>
+                    <a class="buyButtonList" asp-controller="Home" asp-route-name="@item.Name" asp-action="BuyProduct">Buy</a>
                 }else{
                     <a class="buyButtonList" asp-area="" asp-controller="Home" asp-action="requestRegister">Buy</a>
                 }

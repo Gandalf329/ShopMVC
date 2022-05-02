@@ -23,7 +23,7 @@
                 </div>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a class="buyButtonList" asp-controller="Home" asp-action="BuyProduct">Buy</a>
+                    <a class="buyButtonList" asp-controller="Home" asp-route-name="@Model.Name" asp-action="BuyProduct">Buy</a>
                 }else{
                     <a class="buyButtonList" asp-area="" asp-controller="Home" asp-action="requestRegister">Buy</a>
                 }
