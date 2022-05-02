@@ -369,6 +369,7 @@ body {
     text-align: justify;
     margin-bottom: 80px;
     padding-bottom: 50px;
+    width: 100%;
 }
 .review {
     font-size: 24px;
@@ -382,4 +383,60 @@ body {
     font-size: 16px;
     display: inline-flex;
     text-align: justify;
+}
+.reqReg{
+    width:100%;
+    text-align:center;
+}
+.headLa {
+    background-color: rgb(249, 141, 184);
+    background-image: url(../images/headImage.jpg);
+    background-position: min(100%);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+.headItem {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+    background-color: rgba(47, 47, 47,1);
+    background-clip: padding-box;
+    border: 1px solid rgb(23, 23, 23);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.itemLiLayout {
+    margin-right: 5px;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+}
+.searchItem {
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+
+}
+.headName {
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+.searchFormItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: calc(1.5rem + 2px);
+    padding: 0.375rem 0.75rem;
+}
+.textFormItem{
+    margin-right:0.5em;
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1250px;
+    }
 }

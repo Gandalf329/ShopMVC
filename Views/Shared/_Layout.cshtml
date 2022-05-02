@@ -5,59 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ShopMVC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/b3dd0256d3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header >
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header class="headLa" >
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ShopMVC</a>
+                <a class="navbar-brand  headName" asp-area="" asp-controller="Home" asp-action="Index">ShopMVC</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item itemLiLayout">
+                            <a class="headItem " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @if (User.IsInRole("admin"))
                         {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllThisProducts">All tProducts</a>
+                        <li class="nav-item itemLiLayout">
+                            <a class="headItem " asp-area="" asp-controller="Home" asp-action="AllThisProducts">All tProducts</a>
                         </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllProducts">All Products</a>
+                        <li class="nav-item itemLiLayout">
+                            <a class="headItem " asp-area="" asp-controller="Home" asp-action="AllProducts">All Products</a>
                         </li>
                         @if (User.IsInRole("admin"))
                         {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateProduct">Create Product</a>
+                        <li class="nav-item itemLiLayout">
+                            <a class="headItem" asp-area="" asp-controller="Home" asp-action="CreateProduct">Create Product</a>
                         </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AllCategories">Categories</a>
+                        <li class="nav-item itemLiLayout">
+                            <a class="headItem " asp-area="" asp-controller="Home" asp-action="AllCategories">Categories</a>
                         </li>
 
-                        <li class="nav-item">
-                            <form asp-controller="Home" asp-action="AllProducts">
-                                <p>
-                                    Product: <input type="text" name="SearchString" />
-                                    <input type="submit" value="Search" />
+                        <li class="nav-item itemLiLayout">
+                            <form class="searchItem" asp-controller="Home" asp-action="AllProducts">
+                                <p class="searchFormItem">
+                                    <input class="textFormItem" type="text" placeholder="Search" name="SearchString" />
+                                    <input class="headItem" style="width:auto;" type="submit" value="Search" />
                                 </p>
                             </form>
                         </li>
                     </ul>
                     @if (User.Identity.IsAuthenticated)
-                    {  
+                    {
                     <a class="nav-link text-dark" asp-controller="Users" asp-action="ViewUserProfile" asp-route-name="@User.Identity.Name" method="post">@User.Identity.Name</a>
                     <form method="post" asp-controller="Account" asp-action="Logout">
-                        <input class="exitButton" type="submit" value="Выход"/>
+                        <input class="exitButton" type="submit" value="Выход" />
                     </form>
                     }else{
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login" align="left">Login</a>
+                    <a class="exitButton" style="background-color: lightgreen; margin-right: 5px; width: auto " asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                    <a class="exitButton" style="background-color: lightyellow;margin-right: 5px; width: auto " asp-area="" asp-controller="Account" asp-action="Login" align="left">Login</a>
+                    
                     }
                 </div>
             </div>

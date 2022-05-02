@@ -21,7 +21,12 @@
                 <div class="priceBox">
                     <div class="itemPrice">@Model.Price р.</div>
                 </div>
-                <a class="buyButtonList"asp-controller="Home" asp-action="BuyProduct">Buy</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="buyButtonList" asp-controller="Home" asp-action="BuyProduct">Buy</a>
+                }else{
+                    <a class="buyButtonList" asp-area="" asp-controller="Home" asp-action="requestRegister">Buy</a>
+                }
                 @if (User.IsInRole("admin"))
                 {
                 <form method="post" asp-controller="Home" asp-action="BuyTest" asp-route-id="@Model.Id">
