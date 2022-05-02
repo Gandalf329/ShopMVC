@@ -91,7 +91,6 @@ namespace ShopMVC.Controllers
                 {
                     return RedirectToAction("NoneProducts");
                 }
-                //string check = products.ToString();
             }
 
             return View(await products.ToListAsync());
@@ -218,9 +217,10 @@ namespace ShopMVC.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("AllProducts");
         }
-        public IActionResult BuyProduct()
+        public IActionResult BuyProduct(string name)
         {
-            return View();
+            OrderModel order = new OrderModel() { NameProduct = name };
+            return View(order);
         }
         [HttpPost]
         public async Task<IActionResult> BuyProduct(OrderModel orderModel)
