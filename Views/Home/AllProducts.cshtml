@@ -6,8 +6,24 @@
     {
     <a asp-action="CreateProduct">New product</a>
     }
-<h1>All Products</h1>
 
+<div class="topText">
+    <h1>All Products</h1>
+    <form class="sortForm" asp-controller="Home" asp-action="AllProducts">
+        <p class="sort">
+            <label for="name">Sort by:</label>
+            <select class="selectSort" name="orderString">
+                <option value=""></option>
+                <option value="">Name</option>
+                <option value="name_desc">Name desc</option>
+                <option value="Price">Price</option>
+                <option value="price_desc">Price desc</option>
+            </select>
+            <input class="sortSubmit" style="width:auto;" type="submit" value="View" />
+        </p>
+    </form>
+    
+</div>
 <div class="text-center">
     <ul class="list">
         @foreach (var item in Model){
