@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShopMVC.Models.Product>
+﻿@model PaginateModel<ShopMVC.Models.Product>
 @{
     ViewData["Title"] = "All Products";
 }
@@ -8,16 +8,16 @@
     }
 
 <div class="topText">
-    <h1>All Products</h1>
+    <h1>All Products</h1> 
     <form class="sortForm" asp-controller="Home" asp-action="AllProducts">
         <p class="sort">
             <label for="name">Sort by:</label>
             <select class="selectSort" name="orderString">
-                <option value=""></option>
+                <option value="">@ViewData["CurrentSort"]</option>
                 <option value="">Name</option>
-                <option value="name_desc">Name desc</option>
+                <option value="Name_desc">Name desc</option>
                 <option value="Price">Price</option>
-                <option value="price_desc">Price desc</option>
+                <option value="Price_desc">Price desc</option>
             </select>
             <input class="sortSubmit" style="width:auto;" type="submit" value="View" />
         </p>
@@ -47,3 +47,21 @@
         }
     </ul>
 </div>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-controller="Home" asp-action="AllProducts"
+   asp-route-orderString="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-controller="Home" asp-action="AllProducts"
+   asp-route-orderString="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
