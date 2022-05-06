@@ -34,7 +34,7 @@
                 {
                 <a class="listFieldImg" method="post" asp-controller="Home" asp-action="ProductView" asp-route-id="@item.Id"><img class="listImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Photo))" /></a>
                 }
-                <div class="listName">@item.Name</div>
+                <a class="listName" method="post" asp-controller="Home" asp-action="ProductView" asp-route-id="@item.Id">@item.Name</a>
                 <div class="listPrice">@item.Price р.</div>
                 @if (User.Identity.IsAuthenticated)
                 {  

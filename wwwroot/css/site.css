@@ -250,7 +250,12 @@ body {
     height: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: rgb(33, 37, 41);
 }
+    .listName:hover, .listName:active {
+        text-decoration: none;
+        color: rgb(33, 37, 41);
+    }
 .listPrice {
     align-items: flex-start;
     display: flex;
@@ -295,6 +300,7 @@ body {
     float: left;
     text-align: left;
 }
+
 .itemFieldImg {
     height: 180px;
     width: 180px;
