@@ -1,16 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models",
-    "\\Views",
-    "\\Views\\Account",
-    "\\Views\\Home",
-    "\\Views\\Shared",
+    "\\Controllers",
     "\\wwwroot",
     "\\wwwroot\\css",
-    "\\wwwroot\\lib",
-    "\\wwwroot\\lib\\jquery-validation-unobtrusive"
+    "\\wwwroot\\images"
   ],
-  "SelectedNode": "\\Views\\Home\\ProductView.cshtml",
+  "SelectedNode": "\\wwwroot\\css\\site.css",
   "PreviewInSolutionExplorer": false
 }

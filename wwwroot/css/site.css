@@ -185,7 +185,7 @@ body {
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-    .editButton:hover, .deleteButton:hover, .buyButtonList, .buyButtonList:hover, .listCategory:active {
+    .exitButton:hover,.editButton:hover, .deleteButton:hover, .buyButtonList, .buyButtonList:hover, .listCategory:active {
         text-decoration: none;
         color: #212529;
     }
@@ -411,6 +411,14 @@ body {
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+    .headItem:hover, .headItem:active {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        transform: scale(1.025);
+    }
+.exitButton:hover {
+    transform: scale(1.025);
+}
 .itemLiLayout {
     margin-right: 5px;
     padding-top: 0.3125rem;
@@ -439,4 +447,44 @@ body {
     .container {
         max-width: 1250px;
     }
+}
+.topText{
+    display:flex;
+    
+}
+.sort {
+    margin: 0px;
+    position: relative;
+    padding: 0.375rem 0.75rem;
+}
+.sortForm {
+    padding: 5px;
+}
+.sortSubmit {
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+    background-color: rgba(47, 47, 47,1);
+    background-clip: padding-box;
+    border: 1px solid rgb(23, 23, 23);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .sortSubmit:hover, .sortSubmit:active {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        transform: scale(1.025);
+    }
+.selectSort {
+    background-color: rgba(47, 47, 47,1);
+    color: rgb(255, 255, 255);
+    border-radius: 0.35rem;
+    height: calc(2.35rem + 2px);
+    padding: 0.375rem 0.75rem;
 }

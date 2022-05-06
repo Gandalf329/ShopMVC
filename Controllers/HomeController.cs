@@ -78,10 +78,12 @@ namespace ShopMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public async Task<IActionResult> AllProducts(string searchString)
+        public async Task<IActionResult> AllProducts(string orderString ,string searchString)
         {
             var products = from m in db.Products
                          select m;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(orderString) ? "name_desc" : "";
+            ViewData["PriceSortParm"] = orderString == "Price" ? "price_desc" : "Price";
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -91,6 +93,25 @@ namespace ShopMVC.Controllers
                 {
                     return RedirectToAction("NoneProducts");
                 }
+            }
+            if (!String.IsNullOrEmpty(orderString))
+            {
+                switch (orderString)
+                {
+                    case "name_desc":
+                        products = products.OrderByDescending(s => s.Name);
+                        break;
+                    case "Price":
+                        products = products.OrderBy(s => s.Price);
+                        break;
+                    case "price_desc":
+                        products = products.OrderByDescending(s => s.Price);
+                        break;
+                    default:
+                        products = products.OrderBy(s => s.Name);
+                        break;
+                }
+
             }
 
             return View(await products.ToListAsync());
