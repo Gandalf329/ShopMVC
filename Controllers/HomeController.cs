@@ -78,15 +78,25 @@ namespace ShopMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public async Task<IActionResult> AllProducts(string orderString ,string searchString)
+        public async Task<IActionResult> AllProducts(string orderString, string currentFilter ,string searchString, int? pageNumber)
         {
             var products = from m in db.Products
                          select m;
+            ViewData["CurrentSort"] = orderString;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(orderString) ? "name_desc" : "";
             ViewData["PriceSortParm"] = orderString == "Price" ? "price_desc" : "Price";
-
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewData["CurrentFilter"] = searchString;
             if (!String.IsNullOrEmpty(searchString))
             {
+                
                 products = products.Where(p => p.Name.Contains(searchString));
                 var counts =  await products.CountAsync();
                 if (counts == 0)
@@ -98,23 +108,24 @@ namespace ShopMVC.Controllers
             {
                 switch (orderString)
                 {
-                    case "name_desc":
+                    case "Name_desc":
                         products = products.OrderByDescending(s => s.Name);
                         break;
                     case "Price":
                         products = products.OrderBy(s => s.Price);
                         break;
-                    case "price_desc":
+                    case "Price_desc":
                         products = products.OrderByDescending(s => s.Price);
                         break;
                     default:
                         products = products.OrderBy(s => s.Name);
                         break;
                 }
-
             }
 
-            return View(await products.ToListAsync());
+            int pageSize = 10;
+            return View(await PaginateModel<Product>.CreateAsync(products, pageNumber ?? 1, pageSize));
+            //return View(await products.ToListAsync());
         }
         public async Task<IActionResult> AllThisProducts(string searchString)
         {

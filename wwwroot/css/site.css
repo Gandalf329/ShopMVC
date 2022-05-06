@@ -251,6 +251,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     color: rgb(33, 37, 41);
+    display: block;
 }
     .listName:hover, .listName:active {
         text-decoration: none;
