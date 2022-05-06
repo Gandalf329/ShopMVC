@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Order completed!";
+}
+
+
+<h1 style="text-align: center;">Order completed!</h1>
+<div class="reqReg">
+    <a class="buyButtonList" style="display: unset; font-size: 1.5rem;" asp-area="" asp-controller="Home" asp-action="AllProducts">Back shop</a>
+    <a class="editButton" style="display: unset; font-size: 1.5rem;" asp-area="" asp-controller="Home" asp-action="MyOrders"  asp-route-name="@User.Identity.Name" align="left">My orders</a>
+</div>
+

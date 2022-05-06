@@ -264,7 +264,7 @@ namespace ShopMVC.Controllers
             db.OrderModels.Add(orderModel);
 
             await db.SaveChangesAsync();
-            return RedirectToAction("AllProducts");
+            return RedirectToAction("DoneOrder");
         }
         public async Task<IActionResult> AllCategories()
         {
@@ -303,6 +303,10 @@ namespace ShopMVC.Controllers
                 //string check = products.ToString();
             }
             return View(await orders.ToListAsync());
+        }
+        public IActionResult DoneOrder()
+        {
+            return View();
         }
     }
 }
