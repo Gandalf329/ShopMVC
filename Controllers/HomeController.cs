@@ -12,6 +12,7 @@ using ShopMVC.Filters;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+
 namespace ShopMVC.Controllers
 {
     public class HomeController : Controller
@@ -83,8 +84,8 @@ namespace ShopMVC.Controllers
             var products = from m in db.Products
                          select m;
             ViewData["CurrentSort"] = orderString;
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(orderString) ? "name_desc" : "";
-            ViewData["PriceSortParm"] = orderString == "Price" ? "price_desc" : "Price";
+            ViewData["NameSortParm"] = orderString == "Name" ? "Name desc" : "Name";
+            ViewData["PriceSortParm"] = orderString == "Price" ? "Price desc" : "Price";
             if (searchString != null)
             {
                 pageNumber = 1;
@@ -96,7 +97,6 @@ namespace ShopMVC.Controllers
             ViewData["CurrentFilter"] = searchString;
             if (!String.IsNullOrEmpty(searchString))
             {
-                
                 products = products.Where(p => p.Name.Contains(searchString));
                 var counts =  await products.CountAsync();
                 if (counts == 0)
@@ -108,13 +108,16 @@ namespace ShopMVC.Controllers
             {
                 switch (orderString)
                 {
-                    case "Name_desc":
+                    case "Name":
+                        products = products.OrderBy(s => s.Name);
+                        break;
+                    case "Name desc":
                         products = products.OrderByDescending(s => s.Name);
                         break;
                     case "Price":
                         products = products.OrderBy(s => s.Price);
                         break;
-                    case "Price_desc":
+                    case "Price desc":
                         products = products.OrderByDescending(s => s.Price);
                         break;
                     default:
