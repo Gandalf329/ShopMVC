@@ -13,7 +13,11 @@
         <div class="detailLeft">
             <h2 class="itemName">@Model.Name</h2>
             @if (Model.Photo != null){
-            <a class="itemFieldImg"><img class="itemImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))" /></a>
+            <a  href="#openImage" class="itemFieldImg"><img class="itemImg" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))" /></a>
+            <div id="openImage" class="modalImage">
+                <a href="https://localhost:5001/Home/ProductView/@Model.Id" title="Закрыть" class="close">X</a>
+                <a href="https://localhost:5001/Home/ProductView/@Model.Id"><img class="itemImgBig" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))" /></a>
+            </div>
             }
         </div>
         <div class="detailRight">
