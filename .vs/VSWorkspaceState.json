@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Filters",
-    "\\Models",
-    "\\Views",
-    "\\Views\\Home",
-    "\\Views\\Shared",
-    "\\Views\\Users",
-    "\\wwwroot",
-    "\\wwwroot\\css",
-    "\\wwwroot\\images"
+    ""
   ],
-  "SelectedNode": "\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\ShopMVC.sln",
   "PreviewInSolutionExplorer": false
 }

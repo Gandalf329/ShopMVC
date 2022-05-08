@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using ShopMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using ShopMVC.Filters;
+
 namespace ShopMVC
 {
     public class Startup
@@ -28,7 +30,7 @@ namespace ShopMVC
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
-
+            services.AddScoped<SimpleResourceFilter>();
             services.AddIdentity<User, IdentityRole>(opts => {
                 opts.Password.RequiredLength = 5;   // минимальная длина
                 opts.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
@@ -40,6 +42,7 @@ namespace ShopMVC
 
             })
                 .AddEntityFrameworkStores<ApplicationContext>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

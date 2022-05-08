@@ -5,12 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Order\**" />
+    <Content Remove="Views\Order\**" />
+    <EmbeddedResource Remove="Views\Order\**" />
+    <None Remove="Views\Order\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
 

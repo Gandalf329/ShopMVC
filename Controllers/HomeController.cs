@@ -12,6 +12,9 @@ using ShopMVC.Filters;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Net.Http;
+using Microsoft.Net.Http.Headers;
+using System.Net;
 
 namespace ShopMVC.Controllers
 {
@@ -243,7 +246,11 @@ namespace ShopMVC.Controllers
         }
         public IActionResult ProductView(int id)
         {
-            return View(db.Products.Find(id));
+            var products = db.Products.Find(id);
+
+
+
+            return View(products);
         }
         [HttpPost]
         public async Task<IActionResult> BuyTest(int id)
@@ -318,6 +325,22 @@ namespace ShopMVC.Controllers
             }
             return View(await orders.ToListAsync());
         }
+        [HttpPost]
+        public async Task<IActionResult> AddMoney(string name)
+        {
+            Console.WriteLine("5");
+            User user = await _userManager.FindByNameAsync(name);
+            Console.WriteLine("name");
+            if (user != null)
+            {
+                user.Money += 10000;
+                Console.WriteLine("1");
+            }
+            await db.SaveChangesAsync();
+            Console.WriteLine("2");
+            return RedirectToAction("AllProducts");
+        }
+        
         public IActionResult DoneOrder()
         {
             return View();

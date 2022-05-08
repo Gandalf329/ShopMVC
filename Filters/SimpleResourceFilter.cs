@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ShopMVC.Filters
 {
-    public class DateTimeExecutionFilterAttribute : Attribute, IResultFilter
+    public class SimpleResourceFilter : Attribute, IResultFilter
     {
         public void OnResultExecuting(ResultExecutingContext context)
         {

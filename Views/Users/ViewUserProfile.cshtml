@@ -3,20 +3,44 @@
     ViewData["Title"] = "Profile";
 }
 <h1>@Model.UserName profile</h1>
-@if(User.Identity.IsAuthenticated)
-{
-    <div>
-        <p>@Model.UserName</p>
-    </div>
-    if (User.IsInRole("admin"))
+<div class="profileDetail">
+    <div class="profileLeft">
+    @if(User.Identity.IsAuthenticated)
     {
-        <a class="nav-link text-dark" style="width: max-content; border-radius: 5px; background-color: bisque; color: darkcyan; font-weight: bold" asp-area="" asp-controller="Home" asp-action="AllOrders">Orders</a>
-        <p>@Model.Id</p>
-    }
+        if (User.IsInRole("admin"))
+        {
+            <a class="nav-link text-dark" style="width: max-content; border-radius: 5px; background-color: bisque; color: darkcyan; font-weight: bold" asp-area="" asp-controller="Home" asp-action="AllOrders">Orders</a>
+            <p>@Model.Id</p>
+        }
     
-    <p> @Model.Email</p>
-    <p> Money: @Model.Money </p>
-}
+        <p>Email: @Model.Email</p>
+        <p> Money: @Model.Money </p>
+        
+            <form method="post" asp-controller="Home" asp-action="AddMoney" asp-route-name="@User.Identity.Name">
+                    <input style="background-color: rgb(98, 184, 102); width: max-content; border-radius: 5px; " class="nav-link text-dark" type="submit" value="Add 10k" />
+                </form>
+    }
+    </div>
+    <div class="profileRight">
+        @if(User.Identity.IsAuthenticated)
+        {
+            <a class="profileMoney"><img class="profileImage" src="../images/dollar.png" alt="" /></a>
+
+            <div class="profileText">
+                <p class="profileName">Your balance:</p>
+                @if (Model.Money > 999999)
+                {
+                    <p class="profileMini">1m...</p>  
+                }
+                else
+                {
+                  <p class="profileMini">@Model.Money</p>  
+                }
+            </div>
+        }
+    </div>
+</div>
+
 <div>
     <h1 style=" font-size: 2rem; font-weight: 700;">My orders</h1>
     <a style="background-color: lightgray; width: max-content; border-radius: 5px; " class="nav-link text-dark" asp-controller="Home" asp-action="MyOrders" asp-route-name="@User.Identity.Name">my order</a>
