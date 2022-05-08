@@ -328,16 +328,12 @@ namespace ShopMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMoney(string name)
         {
-            Console.WriteLine("5");
             User user = await _userManager.FindByNameAsync(name);
-            Console.WriteLine("name");
             if (user != null)
             {
                 user.Money += 10000;
-                Console.WriteLine("1");
             }
             await db.SaveChangesAsync();
-            Console.WriteLine("2");
             return RedirectToAction("AllProducts");
         }
         
