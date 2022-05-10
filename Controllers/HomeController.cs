@@ -86,6 +86,7 @@ namespace ShopMVC.Controllers
         {
             var products = from m in db.Products
                          select m;
+            products = products.Where(x => x.Amount > 0);
             ViewData["CurrentSort"] = orderString;
             ViewData["NameSortParm"] = orderString == "Name" ? "Name desc" : "Name";
             ViewData["PriceSortParm"] = orderString == "Price" ? "Price desc" : "Price";

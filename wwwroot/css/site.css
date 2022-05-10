@@ -67,13 +67,50 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+.mainContent {
+    padding-bottom: 100px;
+}
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
-    
+    display: block;
+    background-color: #8c8c8c;
+    color: #fff;
+}
+.social {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+    .social a {
+        color: #fff;
+        flex-direction: column;
+        font-size: 2.5rem;
+        height: 1.5rem;
+        margin: 1rem;
+        transition: all .1s ease-in;
+        width: 3rem;
+    }
+
+        .social a:hover {
+            transform: translateY(-2px);
+            color: rgb(216, 213, 213);
+        }
+.urlGit {
+    color: #00234a;
+}
+.urlGit:hover {
+    text-decoration: none;
+    color:black;
+}
+.footer__text, .footer__text {
+    color: black;
+    font-size: 0.9rem;
+    margin-bottom: 0px;
+    text-decoration: none !important;
 }
 .miniImg {
     width: 55px;

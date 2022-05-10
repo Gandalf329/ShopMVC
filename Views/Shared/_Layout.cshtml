@@ -65,7 +65,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container mainContent">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -73,7 +73,21 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - ShopMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="social">
+                <a rel="noreferrer" href="#!" target="_blank">
+                    <i class="fa-brands fa-twitter fa-xs"></i>
+                </a>
+                <a rel="noreferrer" href="#!" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-xs"></i>
+                </a>
+                <a rel="noreferrer" href="#!" target="_blank">
+                    <i class="fa-brands fa-telegram fa-xs"></i>
+                </a>
+                <a rel="noreferrer" href="#!" target="_blank">
+                    <i class="fa-brands fa-github fa-xs"></i>
+                </a>
+            </div>
+            <p class="footer__text"> &copy; 2022 - Projects developed by <a class="urlGit" rel="noreferrer" href="https://github.com/Gandalf329" target="_blank">Nikita Pokhleabev</a> </p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
