@@ -12,6 +12,8 @@ using ShopMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ShopMVC.Filters;
+using Microsoft.AspNetCore.ResponseCompression;
+using System.IO.Compression;
 
 namespace ShopMVC
 {
@@ -31,6 +33,13 @@ namespace ShopMVC
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddScoped<SimpleResourceFilter>();
+            services.AddMemoryCache();
+            services.AddResponseCompression(options => options.EnableForHttps = true);
+
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Optimal;
+            });
             services.AddIdentity<User, IdentityRole>(opts => {
                 opts.Password.RequiredLength = 5;   // минимальная длина
                 opts.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
@@ -59,10 +68,15 @@ namespace ShopMVC
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Add("Cache-Control", "public,max-age=600");
+                }
+            });
             app.UseRouting();
-
+            app.UseResponseCompression();
             app.UseAuthentication();
             app.UseAuthorization();
 

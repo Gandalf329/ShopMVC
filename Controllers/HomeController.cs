@@ -12,6 +12,7 @@ using ShopMVC.Filters;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Caching.Memory;
 using System.Net.Http;
 using Microsoft.Net.Http.Headers;
 using System.Net;
@@ -22,10 +23,12 @@ namespace ShopMVC.Controllers
     {
         private ApplicationContext db;
         UserManager<User> _userManager;
-        public HomeController(UserManager<User> userManager, ApplicationContext context)
+        private IMemoryCache cache;
+        public HomeController(UserManager<User> userManager, ApplicationContext context, IMemoryCache memoryCache)
         {
             _userManager = userManager;
             db = context;
+            cache = memoryCache;
             string description1 = "Функциональный и стильный смартфон Apple iPhone 11 в металлическом корпусе способен обеспечить не только повседневное общение и развлечения, но и продуктивную работу. Для этого он оснащен мощным процессором Apple A13 Bionic из 6 ядер, поддерживающим слаженную работу всех комплектующих, а также модулем ОЗУ объемом в 4 ГБ, что предусматривает быстрое переключение между открытыми приложениями и возможность играть в игры.";
             string description2 = "Apple iPhone 12 — ультрамощный смартфон от престижного бренда. Девайс получил молниеносный процессор A14 Bionic и впечатляющий дисплей Super Retina XDR от края до края. Набор продвинутых камер эффективно работает даже в условиях слабого освещения. Видеоролики Dolby Vision завораживают реалистичностью. Фотовозможности гаджета колоссальны. Широкоугольный датчик теперь улавливает значительно больше света.";
             string description3 = "iPhone 13 работает от аккумулятора до 2,5 часов дольше. Процессор A15 Bionic и камера TrueDepth также обеспечивают работу Face ID, невероятно надёжной технологии аутентификации. Сверхбыстрый чип A15 Bionic обеспечивает работу режима «Киноэффект», фотографических стилей и других функций. Secure Enclave защищает персональные данные, в том числе Face ID и контакты. А ещё новый чип увеличивает время работы от аккумулятора.";
@@ -40,7 +43,6 @@ namespace ShopMVC.Controllers
             
             if (db.Products.Count() == 0)
             {
-                
                 Product product1 = new Product { Name = "Iphone 11", Category1 = category1[0], Category2 = category2[0], Company = company[0], Type = type[0], Amount = 23, Description = description1, Price = price[0] };
                 Product product2 = new Product { Name = "Iphone 12", Category1 = category1[0], Category2 = category2[0], Company = company[0], Type = type[0], Amount = 25, Description = description2, Price = price[1] };
                 Product product3 = new Product { Name = "Iphone 13", Category1 = category1[0], Category2 = category2[0], Company = company[0], Type = type[0], Amount = 22, Description = description3, Price = price[2] };
@@ -82,6 +84,7 @@ namespace ShopMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true, Duration = 300)]
         public async Task<IActionResult> AllProducts(string orderString, string currentFilter ,string searchString, int? pageNumber)
         {
             var products = from m in db.Products
@@ -245,13 +248,23 @@ namespace ShopMVC.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("AllProducts");
         }
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true, Duration = 300)]
         public IActionResult ProductView(int id)
         {
-            var products = db.Products.Find(id);
+            Product product = null;
+            if (!cache.TryGetValue(id, out product))
+            {
+                product = db.Products.Find(id);
+                if(product != null)
+                {
+                    cache.Set(product.Id, product,
+                        new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));                
+                }
+            }
+                
 
 
-
-            return View(products);
+            return View(product);
         }
         [HttpPost]
         public async Task<IActionResult> BuyTest(int id)
