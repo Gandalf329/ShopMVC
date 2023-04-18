@@ -303,10 +303,23 @@ namespace ShopMVC.Controllers
         }
         public async Task<IActionResult> AllCategories()
         {
-            var products = (from m in db.Products
-                           select m).Distinct();
-            
-            return View(await products.ToListAsync());
+            var products = from m in db.Products
+                           select m;
+
+            var listProducts = await products.ToListAsync();
+            for(int i = 0; i < listProducts.Count; i++)
+            {
+                for(int j = i + 1; j < listProducts.Count; j++)
+                {
+                    if (listProducts[i].Category2 == listProducts[j].Category2)
+                    {
+                        listProducts.RemoveAt(j);
+                        j--;
+                    }
+                }
+            }
+
+            return View(listProducts);
         }
         public async Task<IActionResult> Categories(string nameCategory)
         {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\progVis\\copyGit\\ShopMVC.csproj": {}
+    "C:\\Users\\pohle\\source\\repos\\Gandalf329\\ShopMVC\\ShopMVC.csproj": {}
   },
   "projects": {
-    "D:\\progVis\\copyGit\\ShopMVC.csproj": {
+    "C:\\Users\\pohle\\source\\repos\\Gandalf329\\ShopMVC\\ShopMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\progVis\\copyGit\\ShopMVC.csproj",
+        "projectUniqueName": "C:\\Users\\pohle\\source\\repos\\Gandalf329\\ShopMVC\\ShopMVC.csproj",
         "projectName": "ShopMVC",
-        "projectPath": "D:\\progVis\\copyGit\\ShopMVC.csproj",
+        "projectPath": "C:\\Users\\pohle\\source\\repos\\Gandalf329\\ShopMVC\\ShopMVC.csproj",
         "packagesPath": "C:\\Users\\pohle\\.nuget\\packages\\",
-        "outputPath": "D:\\progVis\\copyGit\\obj\\",
+        "outputPath": "C:\\Users\\pohle\\source\\repos\\Gandalf329\\ShopMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\pohle\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +60,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

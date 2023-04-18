@@ -10,7 +10,6 @@
 
 <div class="text-center">
     <table class="table">
-        <tr><td>Category</td></tr>
         @foreach (var item in Model)
         {
                 <tr><td><a asp-controller="Home" asp-action="Categories" asp-route-nameCategory="@item.Category2">@item.Category2 </a></td></tr>
